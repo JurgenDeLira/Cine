@@ -7,4 +7,15 @@ class Cine:
         
     def info(self):
         print(f"Cine: {self.cine} \nDirección: {self.direccion}")
-        S
+        
+    def mostrarFunciones(self):
+        print("\nFunciones disponibles del día de hoy: \n")
+        for funcion in self.funciones:
+                if not funcion.finished:
+                    funcion.info()
+    def obtenerLugares(self, funcion):
+        self.funciones[funcion].pelicula.info()
+        for asiento in self.funciones[funcion].sala.lista_asientos:
+            estado = "Ocupado" if asiento.ocupado else "Disponible"
+            print(f"{asiento.numero}{asiento.fila} Estado: {estado}")
+    
